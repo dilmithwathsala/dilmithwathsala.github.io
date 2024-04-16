@@ -18,6 +18,8 @@
         }
         .container {
             text-align: center;
+            opacity: 0;
+            animation: fadeIn 2s forwards;
         }
         h1 {
             color: #333;
@@ -25,6 +27,14 @@
         p {
             color: #666;
             margin-top: 10px;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
         }
     </style>
 </head>
@@ -42,6 +52,5 @@
             container.style.opacity = "1";
         });
     </script>
-    
 </body>
 </html>
