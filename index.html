@@ -3,31 +3,241 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles/index.css">
+    <link rel="icon" type="image/png" href="images/20231010_194147-removebg.png"/>
+    <title>dilmith-wathsala-live</title>
+
+    <!-- css link -->
+    <link rel="stylesheet" href="index.css">
+    <!-- box icon -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <!-- javascript  -->
+    <!-- <script src="js/scripts.js"></script> -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+
     
-    <link rel="icon" type="image/png" href="images/dilmith1.png"/>
-    <title>dilmithwathsala.live</title>
 </head>
 <body>
-    <!-- <button class="toggle-btn">Toggle Sidebar</button> -->
+    <!-- header design -->
+    <header class="header">
+        <a href="index.html" class="logo"> Portfolio</a>
+        <i class='bx bx-menu' id="menu-icon"></i>
+        <nav class="navbar">
+            <a href="" class="active">Home</a>
+            <!-- <a href="">About</a> -->
+            <!-- <a href="#service">Services</a> -->
+            <a href="#portfolio">Projects</a>
+            <a href="#other">Other</a>
+            <a href="#contact">Contact </a>
+        </nav>
+    </header>
 
-    <div class="sidenav">
-        <a href="#">Portfolio</a>
-        <a href="#">Home</a>
-        <a href="#">About </a>
-        <a href="#">Skills</a>
-        <a href="#">Contact</a>
-      </div>
+    <section class="home" id="home">
+        <div class="home-content">
+            <h3>Hello, It's Me</h3>
+            <h1>Dilmith Wathsala</h1>
+            <h3>And I'm a <span class="multiple-text"></span></h3>
+            
+            <p>I am a skilled IT specialization student, excels in social media management and content creation, showcasing remarkable expertise and a passion for community engagement. </p>
 
-      <div class="main">
-        <h2>Welcome</h2>
-        <p>This is some content in the main area.</p>
-        
-        <!-- <video autoplay muted loop id="myVideo">
-            <source src="images/back.mp4" type="video/mp4">
-            Your browser does not support HTML5 video.
-        </video> -->
-      </div>
+            <div class="social-media">
+                <a href="mailto:dilmith519@gmail.com"><i class='bx bxl-gmail' ></i></a>
+                <!-- <a href="https://www.facebook.com/dilmithwathsala"><i class='bx bxl-facebook-circle' ></i></a>
+                <a href="https://www.instagram.com/dil_mith_/"><i class='bx bxl-instagram-alt' ></i></a> -->
+                <a href="https://wa.me/+94706423059"><i class='bx bxl-whatsapp' ></i></a>
+                <a href="https://medium.com/@dilmith519"><i class='bx bxl-medium' ></i></a>
+                <a href="https://github.com/dilmithwathsala"><i class='bx bxl-github' ></i></a>
+                <a href="https://www.linkedin.com/in/dilmith-wathsala"><i class='bx bxl-linkedin'></i></a>
+                <!-- <a href="https://www.youtube.com/channel/UCXBPIxVFbbLUI0X1GYYcvGQ"><i class='bx bxl-youtube'></i></a> 
+                <a href="https://soundcloud.com/dilmith-wathsala?utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing"><i class='bx bxl-soundcloud'></i></a> -->
 
+            </div>
+          <!--  <a href="https://www.canva.com/design/DAFwCOAFroY/NWhrlbu58t3tRX7lLmGxJg/view?utm_content=DAFwCOAFroY&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink" class="btn" download="Dilmith CV">Download CV</a>
+            -->
+            <a href="dilmithcv.pdf" class="btn" download="C:\Users\dilmi\Desktop\dilmithwathsala.github.io\dilmithcv.pdf">Download CV</a>
+          <!--  <a href="dilmithcv.pdf" download="C:\Users\dilmi\Desktop\dilmithwathsala.github.io\dilmithcv.pdf">MY CV</a> -->
+        </div>
+        <div class="home-img">
+            <img src="images/dilmith3.png" alt="image">
+            <!-- <img src="img/home1.png" alt="" class="home1"> -->
+        </div>
+    </section>
+
+
+
+
+<!-- about me  -->
+    <!-- <section class="about" id="about">
+        <div class="about-img">
+            <img src="img/about-img.png" alt="">
+        </div>
+        <div class="about-content">
+            <h2 class="heading">About <span>Me</span></h2>
+            <h3>Web Developer, UI Designer</h3>
+            <p>I 'm Dilmith Wathsala, I'm 24-year-old IT specialization student at SLIIT, currently searching for an intership related to Information Technology. I am passioate about web devoloping, Music, and photography. Also I am a self motivated person that have ability to do work under pressure.</p>
+
+        <a href="aboutme.html#Qualification"  class="btn" >Read More</a>    
+
+
+        </div>
+    </section> -->
+
+
+
+    <!-- Projects </section> -->
+    <!-- <section class="portfolio" id="portfolio"><br><br>
+        <h2 class="heading">Latest <span>Project</span></h2>
+        <div class="portfolio-container">
+            <div class="portfolio-box">
+                <img src="images/max-duzij-qAjJk-un3BI-unsplash.jpg" alt="portfolio1.jpg">
+                <div class="portfolio-layer">
+                    <h4  >Online Vegitable selling Syastem (Payment function)</h4>
+                    <p>"Online Vegitable buying & selling Syastem powered by the MERN stack."</p>
+                    <a href="#"> <i class='bx bx-link-external' ></i></a>
+                </div>
+            </div>
+
+            <div class="portfolio-box">
+                <img src="images/max-duzij-qAjJk-un3BI-unsplash.jpg" alt="portfolio1.jpg">
+                <div class="portfolio-layer">
+                    <h4 >Fruits & Vegetable Buying Mobile App UI Design</h4>
+                    <p>"My first UI Design for Mobile Application Using Figma"</p>
+                    <a href="https://github.com/IT21334306/Fruits-Vegetables-Buying-App-UI.git"> <i class='bx bx-link-external' ></i></a>
+                </div>
+            </div>
+
+            <div class="portfolio-box">
+                <img src="images/max-duzij-qAjJk-un3BI-unsplash.jpg" alt="portfolio1.jpg">
+                <div class="portfolio-layer">
+                    <h4>Online Vehical Rental System </h4>
+                    <p>"Online vehical rental system for IWT project using HTML, CSS, PHP, and JavaScript."</p>
+                    <a href="#"> <i class='bx bx-link-external' ></i></a>
+                </div>
+            </div>
+            <div class="portfolio-box">
+                <img src="images/max-duzij-qAjJk-un3BI-unsplash.jpg" alt="portfolio1.jpg">
+                <div class="portfolio-layer">
+                    <h4>Online Music store</h4>
+                    <p>"Efficient Java-based online music store using MySQL database."</p>
+                    <a href="#"> <i class='bx bx-link-external' ></i></a>
+                </div>
+            </div>
+            <div class="portfolio-box">
+                <img src="images/max-duzij-qAjJk-un3BI-unsplash.jpg" alt="portfolio1.jpg">
+                <div class="portfolio-layer">
+                    <h4  >Project 4</h4>
+                    <p>"pending description"</p>
+                    <a href="#"> <i class='bx bx-link-external' ></i></a>
+                </div>
+            </div>
+            <div class="portfolio-box">
+                <img src="images/max-duzij-qAjJk-un3BI-unsplash.jpg" alt="portfolio1.jpg">
+                <div class="portfolio-layer">
+                    <h4  >Project 5</h4>
+                    <p>"Pending description</p>
+                    <a href="#"> <i class='bx bx-link-external' ></i></a>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+    -->
+
+    <!-- Contact -->
+
+    <section class="contact" id="contact">
+        <h2 class="heading">Contact <span>Me!</span></h2>
+        <form action="https://formspree.io/f/maygvvdp" method="post">
+            <div class="input-box">
+                <input type="text" placeholder="Full Name" name="Full Name" maxlength="50"  autocomplete="off" required>
+                <input type="email" placeholder="Email Address" name="Email" autocomplete="off" required>
+            </div>
+            <div class="input-box">
+                <input type="number" placeholder="Mobile Number" name="Contact Number" autocomplete="off" required>
+                <input type="text" placeholder="Email Subject"  name="Subject" autocomplete="off" required>
+            </div>
+            <textarea cols="30" rows="10" placeholder="Your Message" name="Message" autocomplete="off" required></textarea>
+            <input type="submit" value="Send Message" class="btn">       
+        </form>
+    </section>
+    
+
+    <!-- footer <section></section> -->
+    <footer class="footer">
+        <div class="footer-text">
+            <p>Copyright &copy; 2024 by Dilmith | All Rights Reserved.</p>
+        </div>
+        <div class="footer-iconTop">
+            <a href="#"><i class='bx bx-up-arrow-alt' ></i></a>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+
+<!-- /* <----------------link to the Javascript--------------->  
+                        <script >
+                                    // ---------------toggle------------
+                            let menuIcon=document.querySelector('#menu-icon');
+                            let navbar=document.querySelector(' .navbar');
+
+                            menuIcon.onclick = ()=>{
+                                menuIcon.classList.toggle('bx-x');
+                                navbar.classList.toggle('active');
+                            };
+
+
+                            let sections=document.querySelectorAll('section');
+                            let navLinks=document.querySelectorAll('header nav a');
+
+                            window.onscroll=()=>{
+                                sections.forEach(sec=>{
+                                    let top =window.scrollY;
+                                    let offset=sec.offsetTop - 150;
+                                    let height =sec.offsetHeight;
+                                    let id =sec.getAttribute('id');
+
+                                    if(top>= offset&&top<offset+height){
+                                        navLinks.forEach(links=>{
+                                            links.classList.remove('active');
+                                            document.querySelector('header nav a[href*='+id+']').classList.add('active');
+                                        });
+                                    };
+                                });
+
+                                // ---------------sticky navbar  -----------------
+                                let header=document.querySelector('header');
+                                header.classList.toggle('sticky',window.screenY>100);
+
+                                //--------------toggle sticky navbar-------------
+                                menuIcon.classList.remove('bx-x');
+                                navbar.classList.remove('active');
+
+
+                            } ;
+                            //------------------scroolize--------------------
+                            ScrollReveal({ 
+                                reset: true ,
+                                distance:'80px' ,
+                                duration:'2000',
+                                delay:200
+                            });
+                            ScrollReveal().reveal('.home-content, .heading', { origin: 'top' });
+                            ScrollReveal().reveal('.home-img, .services-container, .portfolio-box, .other, .contact form', { origin: 'bottom' });
+                            ScrollReveal().reveal('.home-content h1, .about-img', { origin: 'left' });
+                            ScrollReveal().reveal('.home-content p, .about-content', { origin: 'right' });
+
+                            // ----------------typed.js --------------------------     
+                            const typed=new Typed('.multiple-text',{
+                                strings:['Web Developer', 'UI Designer','Social Media Influencer'],
+                                typeSpeed:100,
+                                backSpeed:100,
+                                backDelay:1000,
+                                loop:true
+                            });
+
+
+                        </script>
+                       
 </body>
 </html>
