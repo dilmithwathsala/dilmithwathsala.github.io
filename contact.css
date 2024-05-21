@@ -1,0 +1,46 @@
+/* Resetting default margin and padding */
+body, html {
+    margin: 0;
+    padding: 0;
+}
+
+/* Styling for the sidebar */
+.sidenav {
+    height: 100%;
+    width: 250px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #292929;
+    padding-top: 60px; /* Adjust this value as needed */
+}
+
+.sidenav a {
+    padding: 30px 85px;
+    text-decoration: dashed;
+    font-size: 18px;
+    color: #ffffff;
+    display: block;
+}
+
+.sidenav a:hover {
+    background-color: #eb2828;
+}
+
+/* Styling for the main content area */
+.main {
+    margin-left: 250px; /* Should match the width of the sidebar */
+    padding: 20px;
+}
+
+/* Styling for the welcome heading */
+.main h2 {
+    color: #333;
+}
+
+/* Styling for the paragraph in the main content area */
+.main p {
+    color: #666;
+    line-height: 1.6;
+}
+
