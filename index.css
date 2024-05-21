@@ -12,11 +12,11 @@
 
 }
 :root{
-    --bg-color:#f80808;
-    --second-bg-color:#acff07;
+    --bg-color:#805757;
+    --second-bg-color:#000000;
     --second-bg-color1:#ffffff;
-    --text-color:#f82e2e;
-    --main-color:#ff0000e8;
+    --text-color:#000000;
+    --main-color:#ff5e00;
     background-color: #ffffff;
     
 
@@ -149,7 +149,7 @@ span{
     width: 4rem;
     height: 4rem;
     background: transparent;
-    border: .2rem solid var(--main-color);
+    border: .2rem solid var(black);
     border-radius: 50%;
     font-size: 3rem;
     color: var(--main-color);
