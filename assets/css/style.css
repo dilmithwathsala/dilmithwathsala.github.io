@@ -859,10 +859,12 @@ button {
   .about_img {
     width: 350px;
   }
-
-  .about_description {
-    text-align: initial;
+  .about_data {
+    text-align: center;
   }
+  /* .about_description {
+    text-align: center;
+  } */
 
   .about_button {
     justify-content: initial;
