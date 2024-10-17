@@ -556,13 +556,13 @@ button {
 
 /* CONTACT ME  */
 .contact_container {
-  row-gap: 3rem;
+  row-gap: 6rem;
 }
 
 .contact_info {
   display: flex;
   margin-bottom: var(--mb-2);
-  align-items: flex-start;
+  align-items: center;
 }
 
 .contact_icon {
@@ -601,6 +601,12 @@ button {
 .contact_label {
   font-size: var(--smaller-font-size);
   color: var(--title-color);
+}
+
+#contact_icon{
+ border-radius: 20px;
+ padding-left: -80px;
+
 }
 
 .alert_style {
