@@ -1018,3 +1018,42 @@ button {
   font-size: 1rem;
   color: text var(--text-color-light)
 }
+
+
+.portfolio_card {
+  width: 300px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.portfolio_card:hover {
+  transform: translateY(-10px);
+}
+
+.portfolio_link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.portfolio_image {
+  width: 100%;
+  height: auto;
+}
+
+.portfolio_content {
+  padding: 16px;
+}
+
+.portfolio_title {
+  font-size: 18px;
+  margin: 8px 0;
+}
+
+.portfolio_description {
+  font-size: 14px;
+  color: #666;
+}
