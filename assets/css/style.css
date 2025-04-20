@@ -113,6 +113,7 @@ h3,
 h4 {
   color: var(--title-color);
   font-weight: var(--font-semi-bold);
+  padding-left: 0%;
 }
 
 ul {
