@@ -6,837 +6,13 @@
   <title>Dilmith Wathsala - Portfolio</title>
   <link rel="shortcut icon" href="./dilmith2.jpg" type="image/x-icon" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap');
-
-    :root {
-      --primary: #6366f1;
-      --secondary: #8b5cf6;
-      --accent: #ec4899;
-      --dark: #0f172a;
-      --darker: #020617;
-      --light: #f1f5f9;
-      --text: #1e293b;
-      --text-light: #64748b;
-      --success: #10b981;
-      --warning: #f59e0b;
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'Inter', sans-serif;
-      background: var(--darker);
-      color: var(--light);
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
-
-    h1, h2, h3, h4, h5, h6 {
-      font-family: 'Space Grotesk', sans-serif;
-      font-weight: 700;
-    }
-
-    /* Navigation */
-    nav {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 1000;
-      background: rgba(15, 23, 42, 0.8);
-      backdrop-filter: blur(20px);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
-    .nav-container {
-      max-width: 1400px;
-      margin: 0 auto;
-      padding: 1.2rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .logo {
-      font-size: 1.5rem;
-      font-weight: 700;
-      background: linear-gradient(135deg, var(--primary), var(--accent));
-      -webkit-background-clip: text;
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
-      letter-spacing: -0.5px;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 2.5rem;
-      list-style: none;
-    }
-
-    .nav-links a {
-      color: var(--light);
-      text-decoration: none;
-      font-weight: 500;
-      font-size: 0.95rem;
-      position: relative;
-      transition: color 0.3s;
-    }
-
-    .nav-links a::after {
-      content: '';
-      position: absolute;
-      bottom: -5px;
-      left: 0;
-      width: 0;
-      height: 2px;
-      background: linear-gradient(90deg, var(--primary), var(--accent));
-      transition: width 0.3s;
-    }
-
-    .nav-links a:hover {
-      color: var(--primary);
-    }
-
-    .nav-links a:hover::after {
-      width: 100%;
-    }
-
-    .menu-toggle {
-      display: none;
-      flex-direction: column;
-      gap: 5px;
-      cursor: pointer;
-    }
-
-    .menu-toggle span {
-      width: 25px;
-      height: 2px;
-      background: var(--light);
-      transition: 0.3s;
-    }
-
-    /* Hero Section */
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      padding: 8rem 2rem 4rem;
-      background: linear-gradient(135deg, var(--darker) 0%, #1e1b4b 100%);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero::before {
-      content: '';
-      position: absolute;
-      width: 500px;
-      height: 500px;
-      background: radial-gradient(circle, rgba(99, 102, 241, 0.15), transparent);
-      top: -200px;
-      right: -200px;
-      border-radius: 50%;
-    }
-
-    .hero-container {
-      max-width: 1400px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      align-items: center;
-    }
-
-    .hero-content h1 {
-      font-size: 4.5rem;
-      line-height: 1.1;
-      margin-bottom: 1rem;
-      background: linear-gradient(135deg, #fff, var(--primary));
-      -webkit-background-clip: text;
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    .hero-content .subtitle {
-      font-size: 1.5rem;
-      color: var(--accent);
-      margin-bottom: 1.5rem;
-      font-weight: 600;
-    }
-
-    .hero-content p {
-      font-size: 1.1rem;
-      color: var(--text-light);
-      margin-bottom: 2.5rem;
-      max-width: 500px;
-    }
-
-    .hero-buttons {
-      display: flex;
-      gap: 1.5rem;
-      flex-wrap: wrap;
-    }
-
-    .btn {
-      padding: 1rem 2rem;
-      border-radius: 50px;
-      font-weight: 600;
-      text-decoration: none;
-      transition: all 0.3s;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .btn-primary {
-      background: linear-gradient(135deg, var(--primary), var(--secondary));
-      color: white;
-      box-shadow: 0 10px 30px rgba(99, 102, 241, 0.3);
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 15px 40px rgba(99, 102, 241, 0.4);
-    }
-
-    .btn-secondary {
-      background: rgba(255, 255, 255, 0.1);
-      color: white;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      backdrop-filter: blur(10px);
-    }
-
-    .btn-secondary:hover {
-      background: rgba(255, 255, 255, 0.15);
-      transform: translateY(-3px);
-    }
-
-    .hero-image {
-      position: relative;
-      display: flex;
-      justify-content: center;
-    }
-
-    .image-wrapper {
-      width: 400px;
-      height: 400px;
-      position: relative;
-    }
-
-    .image-wrapper img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      border-radius: 30px;
-      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
-    }
-
-    .image-wrapper::before {
-      content: '';
-      position: absolute;
-      inset: -20px;
-      background: linear-gradient(135deg, var(--primary), var(--accent));
-      border-radius: 30px;
-      z-index: -1;
-      filter: blur(40px);
-      opacity: 0.5;
-    }
-
-    /* Section Styles */
-    section {
-      padding: 6rem 2rem;
-      max-width: 1400px;
-      margin: 0 auto;
-    }
-
-    .section-header {
-      text-align: center;
-      margin-bottom: 4rem;
-    }
-
-    .section-header h2 {
-      font-size: 3rem;
-      margin-bottom: 1rem;
-      background: linear-gradient(135deg, var(--light), var(--primary));
-      -webkit-background-clip: text;
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    .section-header p {
-      color: var(--text-light);
-      font-size: 1.1rem;
-    }
-
-    /* About Section */
-    .about {
-      background: var(--dark);
-    }
-
-    .about-content {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      align-items: center;
-    }
-
-    .about-image img {
-      width: 100%;
-      border-radius: 20px;
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
-    }
-
-    .about-text h3 {
-      font-size: 2rem;
-      margin-bottom: 1.5rem;
-      color: var(--light);
-    }
-
-    .about-text p {
-      color: var(--text-light);
-      margin-bottom: 2rem;
-      line-height: 1.8;
-    }
-
-    .info-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1.5rem;
-      margin-bottom: 2rem;
-    }
-
-    .info-item {
-      background: rgba(99, 102, 241, 0.1);
-      padding: 1.5rem;
-      border-radius: 15px;
-      border: 1px solid rgba(99, 102, 241, 0.2);
-    }
-
-    .info-item span {
-      display: block;
-      color: var(--primary);
-      font-weight: 600;
-      margin-bottom: 0.5rem;
-    }
-
-    .info-item p {
-      color: var(--light);
-      margin: 0;
-    }
-
-    .social-links {
-      display: flex;
-      gap: 1rem;
-    }
-
-    .social-links a {
-      width: 45px;
-      height: 45px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: rgba(99, 102, 241, 0.1);
-      border: 1px solid rgba(99, 102, 241, 0.2);
-      border-radius: 50%;
-      color: var(--primary);
-      transition: all 0.3s;
-    }
-
-    .social-links a:hover {
-      background: var(--primary);
-      color: white;
-      transform: translateY(-5px);
-    }
-
-    /* Experience Section */
-    .experience {
-      background: linear-gradient(135deg, var(--darker) 0%, #1e1b4b 50%, var(--darker) 100%);
-    }
-
-    /* Certificates Section */
-    .certificates {
-      background: var(--dark);
-    }
-
-    .certificates-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-    }
-
-    .certificate-card {
-      background: rgba(255, 255, 255, 0.05);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 20px;
-      padding: 2.5rem;
-      text-align: center;
-      transition: all 0.3s;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .certificate-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 4px;
-      background: linear-gradient(90deg, var(--primary), var(--accent));
-      transform: scaleX(0);
-      transition: transform 0.3s;
-    }
-
-    .certificate-card:hover {
-      transform: translateY(-10px);
-      border-color: var(--primary);
-      box-shadow: 0 30px 60px rgba(99, 102, 241, 0.2);
-    }
-
-    .certificate-card:hover::before {
-      transform: scaleX(1);
-    }
-
-    .certificate-icon {
-      width: 80px;
-      height: 80px;
-      margin: 0 auto 1.5rem;
-      background: linear-gradient(135deg, var(--primary), var(--secondary));
-      border-radius: 20px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 2rem;
-      color: white;
-      transition: all 0.3s;
-    }
-
-    .certificate-card:hover .certificate-icon {
-      transform: rotateY(360deg);
-    }
-
-    .certificate-card h3 {
-      color: var(--light);
-      margin-bottom: 1rem;
-      font-size: 1.3rem;
-    }
-
-    .certificate-card p {
-      color: var(--text-light);
-      margin-bottom: 1.5rem;
-      line-height: 1.6;
-    }
-
-    .cert-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.75rem 1.5rem;
-      background: rgba(99, 102, 241, 0.1);
-      border: 1px solid rgba(99, 102, 241, 0.3);
-      border-radius: 30px;
-      color: var(--primary);
-      text-decoration: none;
-      font-weight: 500;
-      transition: all 0.3s;
-    }
-
-    .cert-link:hover {
-      background: var(--primary);
-      color: white;
-      transform: translateY(-2px);
-      box-shadow: 0 10px 25px rgba(99, 102, 241, 0.3);
-    }
-
-    /* Experience Section */
-
-    .experience-item {
-      background: rgba(255, 255, 255, 0.05);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      padding: 2.5rem;
-      border-radius: 20px;
-      margin-bottom: 2rem;
-      transition: all 0.3s;
-    }
-
-    .experience-item:hover {
-      transform: translateY(-5px);
-      border-color: var(--primary);
-      box-shadow: 0 20px 50px rgba(99, 102, 241, 0.2);
-    }
-
-    .experience-item h2 {
-      font-size: 1.5rem;
-      color: var(--light);
-      margin-bottom: 1rem;
-    }
-
-    .experience-item h3 {
-      font-size: 1.2rem;
-      color: var(--accent);
-      margin-bottom: 1rem;
-    }
-
-    .experience-item p {
-      color: var(--text-light);
-      line-height: 1.8;
-    }
-
-    /* Projects/Services Section */
-    .projects {
-      background: var(--dark);
-    }
-
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-      gap: 2rem;
-    }
-
-    .project-card {
-      background: rgba(255, 255, 255, 0.05);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 20px;
-      overflow: hidden;
-      transition: all 0.3s;
-    }
-
-    .project-card:hover {
-      transform: translateY(-10px);
-      border-color: var(--primary);
-      box-shadow: 0 30px 60px rgba(99, 102, 241, 0.2);
-    }
-
-    .project-image {
-      height: 250px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .project-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.5s;
-    }
-
-    .project-card:hover .project-image img {
-      transform: scale(1.1);
-    }
-
-    .project-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(135deg, rgba(99, 102, 241, 0.9), rgba(236, 72, 153, 0.9));
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      opacity: 0;
-      transition: opacity 0.3s;
-    }
-
-    .project-card:hover .project-overlay {
-      opacity: 1;
-    }
-
-    .project-link {
-      width: 60px;
-      height: 60px;
-      background: white;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--primary);
-      font-size: 1.5rem;
-      transition: transform 0.3s;
-    }
-
-    .project-link:hover {
-      transform: scale(1.2);
-    }
-
-    .project-info {
-      padding: 2rem;
-    }
-
-    .project-info h3 {
-      color: var(--light);
-      margin-bottom: 0.75rem;
-      font-size: 1.3rem;
-    }
-
-    .project-info p {
-      color: var(--text-light);
-      margin-bottom: 1.5rem;
-    }
-
-    .project-tags {
-      display: flex;
-      gap: 0.5rem;
-      flex-wrap: wrap;
-    }
-
-    .project-tags span {
-      padding: 0.4rem 1rem;
-      background: rgba(99, 102, 241, 0.2);
-      color: var(--primary);
-      border-radius: 20px;
-      font-size: 0.85rem;
-      font-weight: 500;
-    }
-
-    /* Contact Section */
-    .contact {
-      background: linear-gradient(135deg, var(--darker) 0%, #1e1b4b 100%);
-    }
-
-    .contact-container {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-    }
-
-    .contact-info h3 {
-      font-size: 2rem;
-      color: var(--light);
-      margin-bottom: 1rem;
-    }
-
-    .contact-info p {
-      color: var(--text-light);
-      margin-bottom: 2rem;
-    }
-
-    .contact-details {
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-    }
-
-    .detail-item {
-      display: flex;
-      gap: 1rem;
-      align-items: flex-start;
-    }
-
-    .detail-item i {
-      width: 50px;
-      height: 50px;
-      background: rgba(99, 102, 241, 0.1);
-      border: 1px solid rgba(99, 102, 241, 0.2);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--primary);
-      font-size: 1.2rem;
-    }
-
-    .detail-item h4 {
-      color: var(--light);
-      margin-bottom: 0.25rem;
-    }
-
-    .detail-item p {
-      color: var(--text-light);
-      margin: 0;
-    }
-
-    .contact-form {
-      background: rgba(255, 255, 255, 0.05);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      padding: 2.5rem;
-      border-radius: 20px;
-    }
-
-    .form-group {
-      margin-bottom: 1.5rem;
-    }
-
-    .form-group label {
-      display: block;
-      color: var(--light);
-      margin-bottom: 0.5rem;
-      font-weight: 500;
-    }
-
-    .form-group input,
-    .form-group textarea {
-      width: 100%;
-      padding: 1rem;
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 10px;
-      color: var(--light);
-      font-family: 'Inter', sans-serif;
-      transition: all 0.3s;
-    }
-
-    .form-group input:focus,
-    .form-group textarea:focus {
-      outline: none;
-      border-color: var(--primary);
-      background: rgba(255, 255, 255, 0.08);
-    }
-
-    .form-group textarea {
-      resize: vertical;
-      min-height: 150px;
-    }
-
-    .form-group .fs-description {
-      color: var(--text-light);
-      font-size: 0.9rem;
-      margin-top: 0.5rem;
-    }
-
-    /* Footer */
-    footer {
-      background: var(--darker);
-      padding: 3rem 2rem 2rem;
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
-    .footer-content {
-      max-width: 1400px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 3rem;
-      margin-bottom: 2rem;
-    }
-
-    .footer-logo h2 {
-      font-size: 1.8rem;
-      background: linear-gradient(135deg, var(--primary), var(--accent));
-      -webkit-background-clip: text;
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
-      margin-bottom: 0.5rem;
-    }
-
-    .footer-logo p {
-      color: var(--text-light);
-    }
-
-    .footer-links {
-      display: flex;
-      flex-direction: column;
-      gap: 0.75rem;
-    }
-
-    .footer-links a {
-      color: var(--text-light);
-      text-decoration: none;
-      transition: all 0.3s;
-    }
-
-    .footer-links a:hover {
-      color: var(--primary);
-      padding-left: 10px;
-    }
-
-    .footer-social {
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
-
-    .footer-social a {
-      width: 45px;
-      height: 45px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: rgba(99, 102, 241, 0.1);
-      border: 1px solid rgba(99, 102, 241, 0.2);
-      border-radius: 50%;
-      color: var(--primary);
-      transition: all 0.3s;
-    }
-
-    .footer-social a:hover {
-      background: var(--primary);
-      color: white;
-      transform: translateY(-3px);
-    }
-
-    .footer-bottom {
-      max-width: 1400px;
-      margin: 0 auto;
-      padding-top: 2rem;
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
-      text-align: center;
-      color: var(--text-light);
-    }
-
-    /* Responsive */
-    @media (max-width: 968px) {
-      .nav-links {
-        position: fixed;
-        top: 0;
-        right: -100%;
-        width: 300px;
-        height: 100vh;
-        background: rgba(15, 23, 42, 0.98);
-        backdrop-filter: blur(20px);
-        flex-direction: column;
-        padding: 6rem 2rem;
-        transition: right 0.3s;
-      }
-
-      .nav-links.active {
-        right: 0;
-      }
-
-      .menu-toggle {
-        display: flex;
-      }
-
-      .hero-container,
-      .about-content,
-      .contact-container {
-        grid-template-columns: 1fr;
-      }
-
-      .hero-content h1 {
-        font-size: 3rem;
-      }
-
-      .footer-content {
-        grid-template-columns: 1fr;
-      }
-
-      .projects-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    @media (max-width: 640px) {
-      .hero-content h1 {
-        font-size: 2.5rem;
-      }
-
-      .section-header h2 {
-        font-size: 2rem;
-      }
-
-      .info-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles/style.css">
 </head>
 <body>
+
   <!-- Navigation -->
   <nav>
     <div class="nav-container">
@@ -846,6 +22,8 @@
         <li><a href="#about">About</a></li>
         <li><a href="#experience">Experience</a></li>
         <li><a href="#certificates">Certificates</a></li>
+        <li><a href="#myprojects">Projects</a></li>
+        <li><a href="#creative">Creative</a></li>
         <li><a href="#projects">Services</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
@@ -862,7 +40,7 @@
     <div class="hero-container">
       <div class="hero-content">
         <h1>Dilmith Wathsala</h1>
-        <p class="subtitle">Project Manager • Frontend Developer • UI/UX Designer</p>
+        <p class="subtitle">IT Project Manager • UAT • Manual Software Testing • UI/UX Designer</p>
         <p>Crafting digital experiences with modern design and cutting-edge technology. Transforming ideas into beautiful, functional solutions.</p>
         <div class="hero-buttons">
           <a href="#contact" class="btn btn-primary">
@@ -896,7 +74,6 @@
       <div class="about-text">
         <h3>Who am I?</h3>
         <p>I'm a final-year IT student passionate about creating beautiful, functional digital experiences. With expertise in frontend development and UI/UX design, I bridge the gap between technology and aesthetics to deliver solutions that truly make an impact.</p>
-        
         <div class="info-grid">
           <div class="info-item">
             <span>Name</span>
@@ -915,7 +92,6 @@
             <p>B.Sc. in Information Technology</p>
           </div>
         </div>
-        
         <div class="social-links">
           <a href="https://github.com/dilmithwathsala"><i class="fab fa-github"></i></a>
           <a href="https://www.linkedin.com/in/dilmith-wathsala"><i class="fab fa-linkedin"></i></a>
@@ -955,80 +131,270 @@
     </div>
     <div class="certificates-grid">
       <div class="certificate-card">
-        <div class="certificate-icon">
-          <i class="fas fa-palette"></i>
+        <div class="cert-embed-wrapper">
+          <iframe src="assets/Certificates/Design thinking.pdf" class="cert-iframe"></iframe>
+          <div class="cert-overlay">
+            <a href="assets/Certificates/Design thinking.pdf" class="cert-link" target="_blank">
+              <i class="fas fa-expand"></i> View Full
+            </a>
+            <a href="assets/Certificates/Design thinking.pdf" class="cert-link cert-link--download" download>
+              <i class="fas fa-download"></i> Download
+            </a>
+          </div>
         </div>
-        <h3>Design Thinking</h3>
-        <p>Mastering user-centered design methodologies and innovation frameworks</p>
-        <a href="assets\Certificates\Design thinking.pdf" class="cert-link" download>
-          <i class="fas fa-download"></i> Download
-        </a>
+        <div class="cert-info">
+          <div class="cert-icon-small"><i class="fas fa-palette"></i></div>
+          <h3>Design Thinking</h3>
+        </div>
       </div>
-      
+
       <div class="certificate-card">
-        <div class="certificate-icon">
-          <i class="fas fa-database"></i>
+        <div class="cert-embed-wrapper">
+          <iframe src="assets/Certificates/GettingStartedMongoDB.pdf" class="cert-iframe"></iframe>
+          <div class="cert-overlay">
+            <a href="assets/Certificates/GettingStartedMongoDB.pdf" class="cert-link" target="_blank">
+              <i class="fas fa-expand"></i> View Full
+            </a>
+            <a href="assets/Certificates/GettingStartedMongoDB.pdf" class="cert-link cert-link--download" download>
+              <i class="fas fa-download"></i> Download
+            </a>
+          </div>
         </div>
-        <h3>Getting Started MongoDB</h3>
-        <p>Fundamentals of NoSQL database management and operations</p>
-        <a href="assets\Certificates\Getting Started MongoDB.pdf" class="cert-link" download>
-          <i class="fas fa-download"></i> Download
-        </a>
+        <div class="cert-info">
+          <div class="cert-icon-small"><i class="fas fa-database"></i></div>
+          <h3>Getting Started MongoDB</h3>
+        </div>
       </div>
-      
+
       <div class="certificate-card">
-        <div class="certificate-icon">
-          <i class="fas fa-eye"></i>
+        <div class="cert-embed-wrapper">
+          <iframe src="assets/Certificates/Introduction to Computer vision.pdf" class="cert-iframe"></iframe>
+          <div class="cert-overlay">
+            <a href="assets/Certificates/Introduction to Computer vision.pdf" class="cert-link" target="_blank">
+              <i class="fas fa-expand"></i> View Full
+            </a>
+            <a href="assets/Certificates/Introduction to Computer vision.pdf" class="cert-link cert-link--download" download>
+              <i class="fas fa-download"></i> Download
+            </a>
+          </div>
         </div>
-        <h3>Introduction to Computer Vision</h3>
-        <p>Exploring image processing and machine learning techniques</p>
-        <a href="assets\Certificates\Introduction to Computer vision.pdf" class="cert-link" download>
-          <i class="fas fa-download"></i> Download
-        </a>
+        <div class="cert-info">
+          <div class="cert-icon-small"><i class="fas fa-eye"></i></div>
+          <h3>Introduction to Computer Vision</h3>
+        </div>
       </div>
-      
+
       <div class="certificate-card">
-        <div class="certificate-icon">
-          <i class="fas fa-tasks"></i>
+        <div class="cert-embed-wrapper">
+          <iframe src="assets/Certificates/Jira Project Management.pdf" class="cert-iframe"></iframe>
+          <div class="cert-overlay">
+            <a href="assets/Certificates/Jira Project Management.pdf" class="cert-link" target="_blank">
+              <i class="fas fa-expand"></i> View Full
+            </a>
+            <a href="assets/Certificates/Jira Project Management.pdf" class="cert-link cert-link--download" download>
+              <i class="fas fa-download"></i> Download
+            </a>
+          </div>
         </div>
-        <h3>Jira Project Management</h3>
-        <p>Agile project management and team collaboration tools</p>
-        <a href="assets\Certificates\Jira Project Management.pdf" class="cert-link" download>
-          <i class="fas fa-download"></i> Download
-        </a>
+        <div class="cert-info">
+          <div class="cert-icon-small"><i class="fas fa-tasks"></i></div>
+          <h3>Jira Project Management</h3>
+        </div>
       </div>
-      
+
       <div class="certificate-card">
-        <div class="certificate-icon">
-          <i class="fas fa-search"></i>
+        <div class="cert-embed-wrapper">
+          <iframe src="assets/Certificates/Seo for beginners.pdf" class="cert-iframe"></iframe>
+          <div class="cert-overlay">
+            <a href="assets/Certificates/Seo for beginners.pdf" class="cert-link" target="_blank">
+              <i class="fas fa-expand"></i> View Full
+            </a>
+            <a href="assets/Certificates/Seo for beginners.pdf" class="cert-link cert-link--download" download>
+              <i class="fas fa-download"></i> Download
+            </a>
+          </div>
         </div>
-        <h3>SEO for Beginners</h3>
-        <p>Search engine optimization strategies and best practices</p>
-        <a href="assets\Certificates\Seo for beginners.pdf" class="cert-link" download>
-          <i class="fas fa-download"></i> Download
-        </a>
+        <div class="cert-info">
+          <div class="cert-icon-small"><i class="fas fa-search"></i></div>
+          <h3>SEO for Beginners</h3>
+        </div>
       </div>
-      
+
       <div class="certificate-card">
-        <div class="certificate-icon">
-          <i class="fas fa-comments"></i>
+        <div class="cert-embed-wrapper">
+          <iframe src="assets/Certificates/Slack Project Management.pdf" class="cert-iframe"></iframe>
+          <div class="cert-overlay">
+            <a href="assets/Certificates/Slack Project Management.pdf" class="cert-link" target="_blank">
+              <i class="fas fa-expand"></i> View Full
+            </a>
+            <a href="assets/Certificates/Slack Project Management.pdf" class="cert-link cert-link--download" download>
+              <i class="fas fa-download"></i> Download
+            </a>
+          </div>
         </div>
-        <h3>Slack Project Management</h3>
-        <p>Effective team communication and project coordination</p>
-        <a href="assets\Certificates\Slack Project Management.pdf" class="cert-link" download>
-          <i class="fas fa-download"></i> Download
-        </a>
+        <div class="cert-info">
+          <div class="cert-icon-small"><i class="fas fa-comments"></i></div>
+          <h3>Slack Project Management</h3>
+        </div>
       </div>
-      
+
       <div class="certificate-card">
-        <div class="certificate-icon">
-          <i class="fas fa-pencil-ruler"></i>
+        <div class="cert-embed-wrapper">
+          <iframe src="assets/Certificates/UI UX for beginners.pdf" class="cert-iframe"></iframe>
+          <div class="cert-overlay">
+            <a href="assets/Certificates/UI UX for beginners.pdf" class="cert-link" target="_blank">
+              <i class="fas fa-expand"></i> View Full
+            </a>
+            <a href="assets/Certificates/UI UX for beginners.pdf" class="cert-link cert-link--download" download>
+              <i class="fas fa-download"></i> Download
+            </a>
+          </div>
         </div>
-        <h3>UI UX for Beginners</h3>
-        <p>User interface and experience design fundamentals</p>
-        <a href="assets\Certificates\UI UX for beginners.pdf" class="cert-link" download>
-          <i class="fas fa-download"></i> Download
-        </a>
+        <div class="cert-info">
+          <div class="cert-icon-small"><i class="fas fa-pencil-ruler"></i></div>
+          <h3>UI UX for Beginners</h3>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="myprojects" class="myprojects">
+    <div class="section-header">
+      <h2>My Projects</h2>
+      <p>Some of the things I've built recently</p>
+    </div>
+    <div class="projects-filter">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="web">Web</button>
+      <button class="filter-btn" data-filter="design">Design</button>
+      <button class="filter-btn" data-filter="iot">IoT</button>
+    </div>
+    <div class="myprojects-grid">
+      <div class="myproject-card" data-category="web">
+        <div class="myproject-image">
+          <img src="assets/web.jpg" alt="Travel Guide Website">
+          <div class="myproject-overlay">
+            <a href="#" class="myproject-link"><i class="fas fa-link"></i></a>
+            <a href="#" class="myproject-link"><i class="fab fa-github"></i></a>
+          </div>
+        </div>
+        <div class="myproject-info">
+          <div class="myproject-category"><span>Web</span></div>
+          <h3>Travel Guide Website</h3>
+          <p>A full-stack MERN web application for booking and exploring tours across Sri Lanka with dynamic listings and user authentication.</p>
+          <div class="myproject-tags">
+            <span>React</span>
+            <span>Node.js</span>
+            <span>MongoDB</span>
+            <span>Express</span>
+          </div>
+        </div>
+      </div>
+      <div class="myproject-card" data-category="iot">
+        <div class="myproject-image">
+          <img src="assets/iot.jpg" alt="Health Monitoring Device">
+          <div class="myproject-overlay">
+            <a href="#" class="myproject-link"><i class="fas fa-link"></i></a>
+            <a href="#" class="myproject-link"><i class="fab fa-github"></i></a>
+          </div>
+        </div>
+        <div class="myproject-info">
+          <div class="myproject-category"><span>IoT</span></div>
+          <h3>Health Monitoring IoT Device</h3>
+          <p>An ESP32-based wearable device capable of real-time step counting and fall detection with cloud sync and mobile app integration.</p>
+          <div class="myproject-tags">
+            <span>ESP32</span>
+            <span>C++</span>
+            <span>IoT</span>
+            <span>Firebase</span>
+          </div>
+        </div>
+      </div>
+      <div class="myproject-card" data-category="design">
+        <div class="myproject-image">
+          <img src="assets/ui.jpg" alt="BOC Flex App">
+          <div class="myproject-overlay">
+            <a href="#" class="myproject-link"><i class="fas fa-link"></i></a>
+            <a href="#" class="myproject-link"><i class="fab fa-behance"></i></a>
+          </div>
+        </div>
+        <div class="myproject-info">
+          <div class="myproject-category"><span>Design</span></div>
+          <h3>BOC Flex App Redesign</h3>
+          <p>Contributed to QA testing and UI/UX improvements for the Bank of Ceylon mobile banking application during my internship.</p>
+          <div class="myproject-tags">
+            <span>UI/UX</span>
+            <span>Figma</span>
+            <span>QA</span>
+            <span>Mobile</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Beyond Code / Creative Section -->
+  <section id="creative" class="creative">
+    <div class="section-header">
+      <h2>Beyond Code</h2>
+      <p>My creative pursuits outside of development</p>
+    </div>
+    <div class="creative-grid">
+      <!-- Music -->
+      <div class="creative-card creative-music">
+        <div class="creative-glow creative-glow--music"></div>
+        <div class="creative-icon-wrap creative-icon-wrap--music">
+          <i class="fas fa-music"></i>
+        </div>
+        <h3>Music</h3>
+        <p>Composing and producing original tracks. Music is my way of expressing emotions that words can't capture.</p>
+        <div class="creative-links">
+          <a href="#" class="creative-link creative-link--youtube" target="_blank">
+            <i class="fab fa-youtube"></i>
+            <span>YouTube</span>
+          </a>
+          <a href="#" class="creative-link creative-link--facebook" target="_blank">
+            <i class="fab fa-facebook-f"></i>
+            <span>Facebook</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Writing -->
+      <div class="creative-card creative-writing">
+        <div class="creative-glow creative-glow--writing"></div>
+        <div class="creative-icon-wrap creative-icon-wrap--writing">
+          <i class="fas fa-pen-fancy"></i>
+        </div>
+        <h3>Writing</h3>
+        <p>Sharing my thoughts on tech, life, and creativity through articles on Medium. Writing helps me reflect and grow.</p>
+        <div class="creative-links">
+          <a href="https://medium.com/@dilmithwathsala" class="creative-link creative-link--medium" target="_blank">
+            <i class="fab fa-medium"></i>
+            <span>Medium</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Photography -->
+      <div class="creative-card creative-photo">
+        <div class="creative-glow creative-glow--photo"></div>
+        <div class="creative-icon-wrap creative-icon-wrap--photo">
+          <i class="fas fa-camera"></i>
+        </div>
+        <h3>Mobile Photography</h3>
+        <p>Capturing life's beautiful moments through my mobile lens. Every shot tells a story waiting to be discovered.</p>
+        <div class="creative-links">
+          <a href="#" class="creative-link creative-link--instagram" target="_blank">
+            <i class="fab fa-instagram"></i>
+            <span>Instagram</span>
+          </a>
+          <a href="#" class="creative-link creative-link--facebook" target="_blank">
+            <i class="fab fa-facebook-f"></i>
+            <span>Facebook</span>
+          </a>
+        </div>
       </div>
     </div>
   </section>
@@ -1058,7 +424,6 @@
           </div>
         </div>
       </div>
-      
       <div class="project-card">
         <div class="project-image">
           <img src="assets/iot.jpg" alt="IOT Devices">
@@ -1077,7 +442,6 @@
           </div>
         </div>
       </div>
-      
       <div class="project-card">
         <div class="project-image">
           <img src="assets/ui.jpg" alt="UI Designs">
@@ -1109,7 +473,6 @@
       <div class="contact-info">
         <h3>Let's talk about your project</h3>
         <p>I'm currently available for freelance work or full-time positions. Feel free to reach out and let's create something amazing together!</p>
-        
         <div class="contact-details">
           <div class="detail-item">
             <i class="fas fa-map-marker-alt"></i>
@@ -1134,7 +497,6 @@
           </div>
         </div>
       </div>
-
       <form action="https://formspree.io/f/mgvzbjea" class="contact-form" method="POST">
         <div class="form-group">
           <label for="name">Your Name</label>
@@ -1170,6 +532,8 @@
         <a href="#about">About</a>
         <a href="#experience">Experience</a>
         <a href="#certificates">Certificates</a>
+        <a href="#myprojects">Projects</a>
+        <a href="#creative">Creative</a>
         <a href="#projects">Services</a>
         <a href="#contact">Contact</a>
       </div>
@@ -1178,7 +542,7 @@
         <a href="https://www.linkedin.com/in/dilmith-wathsala"><i class="fab fa-linkedin"></i></a>
         <a href="https://www.behance.net/dilmithwathsala"><i class="fab fa-behance"></i></a>
         <a href="https://medium.com/@dilmithwathsala"><i class="fab fa-medium"></i></a>
-        <a href="https://www.fiverr.com/dilmithwathsala"><i class="fab fa-x"></i></a>
+        <a href="https://www.fiverr.com/dilmithwathsala"><i class="fab fa-fiverr"></i></a>
         <a href="https://wa.me/+94706423059"><i class="fab fa-whatsapp"></i></a>
       </div>
     </div>
@@ -1187,57 +551,6 @@
     </div>
   </footer>
 
-  <script>
-    // Mobile Menu Toggle
-    const menuToggle = document.getElementById('menuToggle');
-    const navLinks = document.getElementById('navLinks');
-
-    menuToggle.addEventListener('click', () => {
-      navLinks.classList.toggle('active');
-    });
-
-    // Close menu when clicking on a link
-    document.querySelectorAll('.nav-links a').forEach(link => {
-      link.addEventListener('click', () => {
-        navLinks.classList.remove('active');
-      });
-    });
-
-    // Smooth scroll
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-          target.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-          });
-        }
-      });
-    });
-
-    // Active nav link on scroll
-    window.addEventListener('scroll', () => {
-      const sections = document.querySelectorAll('section');
-      const navItems = document.querySelectorAll('.nav-links a');
-      
-      let current = '';
-      sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
-        if (scrollY >= (sectionTop - 200)) {
-          current = section.getAttribute('id');
-        }
-      });
-
-      navItems.forEach(item => {
-        item.classList.remove('active');
-        if (item.getAttribute('href').includes(current)) {
-          item.classList.add('active');
-        }
-      });
-    });
-  </script>
+  <script src="js/script.js"></script>
 </body>
 </html>
