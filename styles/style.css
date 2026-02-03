@@ -1016,6 +1016,15 @@ section {
 
 .form-group {
   margin-bottom: 1.5rem;
+  padding: 0 0.2rem;
+  
 }
 
-.form-group label
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--light);
+  font-weight: 600;
+  padding-left: 0.2rem;
+  
+}
