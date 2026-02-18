@@ -250,3 +250,238 @@ document.addEventListener('DOMContentLoaded', function() {
   
   // ... rest of your existing JavaScript code
 });
+(function () {
+  "use strict";
+
+  /* ── inject styles ─────────────────────────────────────── */
+  const style = document.createElement("style");
+  style.textContent = `
+    /* Hide default cursor site-wide */
+    *, *::before, *::after { cursor: none !important; }
+
+    /* ── Outer ring ───────────────────────────────────────── */
+    #cursor-ring {
+      position: fixed;
+      top: 0; left: 0;
+      width: 40px; height: 40px;
+      border: 1.5px solid rgba(99, 102, 241, 0.65);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 99999;
+      transform: translate(-50%, -50%);
+      transition:
+        width  0.35s cubic-bezier(0.23, 1, 0.32, 1),
+        height 0.35s cubic-bezier(0.23, 1, 0.32, 1),
+        border-color 0.3s,
+        opacity 0.3s,
+        background 0.3s;
+      will-change: transform;
+    }
+
+    /* ── Inner dot ────────────────────────────────────────── */
+    #cursor-dot {
+      position: fixed;
+      top: 0; left: 0;
+      width: 6px; height: 6px;
+      background: linear-gradient(135deg, #6366f1, #ec4899);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 100000;
+      transform: translate(-50%, -50%);
+      transition: opacity 0.3s, width 0.2s, height 0.2s, background 0.3s;
+      will-change: transform;
+    }
+
+    /* ── Hover states ─────────────────────────────────────── */
+    body.cursor-hover #cursor-ring {
+      width: 60px; height: 60px;
+      border-color: rgba(236, 72, 153, 0.6);
+      background: rgba(99, 102, 241, 0.07);
+    }
+    body.cursor-hover #cursor-dot {
+      width: 4px; height: 4px;
+      background: #ec4899;
+    }
+
+    body.cursor-click #cursor-ring {
+      width: 28px; height: 28px;
+      border-color: rgba(236, 72, 153, 0.9);
+      background: rgba(236, 72, 153, 0.12);
+    }
+
+    /* ── Glow particle ────────────────────────────────────── */
+    .cursor-particle {
+      position: fixed;
+      top: 0; left: 0;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 99998;
+      transform: translate(-50%, -50%);
+      will-change: transform, opacity;
+      animation: particle-fade var(--dur, 0.7s) ease-out forwards;
+    }
+
+    @keyframes particle-fade {
+      0%   { opacity: 0.8; transform: translate(-50%, -50%) scale(1); }
+      100% { opacity: 0;   transform: translate(-50%, -50%) scale(0); }
+    }
+
+    /* ── Magnetic ripple on click ─────────────────────────── */
+    .cursor-ripple {
+      position: fixed;
+      top: 0; left: 0;
+      width: 10px; height: 10px;
+      border: 1.5px solid rgba(255, 255, 255, 0.6);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 99997;
+      transform: translate(-50%, -50%);
+      animation: ripple-out 0.55s ease-out forwards;
+    }
+
+    @keyframes ripple-out {
+      0%   { width: 10px;  height: 10px;  opacity: 0.8; }
+      100% { width: 80px;  height: 80px;  opacity: 0; }
+    }
+
+    /* ── Background aurora blob that follows cursor slowly ── */
+    #cursor-aurora {
+      position: fixed;
+      width: 420px; height: 420px;
+      border-radius: 50%;
+      background: radial-gradient(circle,
+        rgba(126, 109, 168, 0.75) 0%,
+        rgba(4, 18, 51, 0.29) 40%,
+        transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+      transform: translate(-50%, -50%);
+      filter: blur(40px);
+      transition: opacity 0.5s;
+      will-change: transform;
+    }
+  `;
+  document.head.appendChild(style);
+
+  /* ── DOM elements ──────────────────────────────────────── */
+  const ring   = document.createElement("div"); ring.id   = "cursor-ring";
+  const dot    = document.createElement("div"); dot.id    = "cursor-dot";
+  const aurora = document.createElement("div"); aurora.id = "cursor-aurora";
+  document.body.append(aurora, ring, dot);
+
+  /* ── State ─────────────────────────────────────────────── */
+  let mx = -200, my = -200;   // raw mouse
+  let rx = -200, ry = -200;   // ring (lerped)
+  let ax = -200, ay = -200;   // aurora (slower lerp)
+  let raf;
+
+  // Particle throttle
+  const PARTICLE_COLORS = [
+    "rgba(99,102,241,",
+    "rgba(139,92,246,",
+    "rgba(236,72,153,",
+    "rgba(99,102,241,",
+  ];
+  let lastParticleTime = 0;
+  const PARTICLE_INTERVAL = 40; // ms between particles
+
+  /* ── Mouse move ─────────────────────────────────────────── */
+  document.addEventListener("mousemove", (e) => {
+    mx = e.clientX;
+    my = e.clientY;
+
+    // Move dot immediately
+    dot.style.left = mx + "px";
+    dot.style.top  = my + "px";
+
+    // Spawn trail particle
+    const now = performance.now();
+    if (now - lastParticleTime > PARTICLE_INTERVAL) {
+      spawnParticle(mx, my);
+      lastParticleTime = now;
+    }
+  });
+
+  /* ── Hover detection ────────────────────────────────────── */
+  const hoverTargets = "a, button, .btn, .project-card, .myproject-card, .creative-card, .certificate-card, .social-links a, .filter-btn, input, textarea, .experience-item";
+
+  document.addEventListener("mouseover", (e) => {
+    if (e.target.closest(hoverTargets)) document.body.classList.add("cursor-hover");
+  });
+  document.addEventListener("mouseout",  (e) => {
+    if (e.target.closest(hoverTargets)) document.body.classList.remove("cursor-hover");
+  });
+
+  /* ── Click ──────────────────────────────────────────────── */
+  document.addEventListener("mousedown", () => {
+    document.body.classList.add("cursor-click");
+    spawnRipple(mx, my);
+  });
+  document.addEventListener("mouseup", () => {
+    document.body.classList.remove("cursor-click");
+  });
+
+  /* ── Particle spawner ───────────────────────────────────── */
+  function spawnParticle(x, y) {
+    const p   = document.createElement("div");
+    const size = 3 + Math.random() * 5;
+    const dur  = 0.45 + Math.random() * 0.45;
+    const color = PARTICLE_COLORS[Math.floor(Math.random() * PARTICLE_COLORS.length)];
+    const alpha = (0.35 + Math.random() * 0.45).toFixed(2);
+
+    p.className = "cursor-particle";
+    p.style.cssText = `
+      width:${size}px; height:${size}px;
+      background:${color}${alpha});
+      left:${x + (Math.random() - 0.5) * 14}px;
+      top:${y + (Math.random() - 0.5) * 14}px;
+      --dur:${dur}s;
+      box-shadow: 0 0 ${size * 2}px ${color}0.4);
+    `;
+    document.body.appendChild(p);
+    setTimeout(() => p.remove(), dur * 1000 + 50);
+  }
+
+  /* ── Ripple spawner ─────────────────────────────────────── */
+  function spawnRipple(x, y) {
+    const r = document.createElement("div");
+    r.className = "cursor-ripple";
+    r.style.left = x + "px";
+    r.style.top  = y + "px";
+    document.body.appendChild(r);
+    setTimeout(() => r.remove(), 600);
+  }
+
+  /* ── Animation loop ─────────────────────────────────────── */
+  function lerp(a, b, t) { return a + (b - a) * t; }
+
+  function loop() {
+    // Ring follows with smooth lag
+    rx = lerp(rx, mx, 0.14);
+    ry = lerp(ry, my, 0.14);
+    ring.style.left = rx + "px";
+    ring.style.top  = ry + "px";
+
+    // Aurora follows very slowly
+    ax = lerp(ax, mx, 0.04);
+    ay = lerp(ay, my, 0.04);
+    aurora.style.left = ax + "px";
+    aurora.style.top  = ay + "px";
+
+    raf = requestAnimationFrame(loop);
+  }
+  loop();
+
+  /* ── Hide / show when cursor leaves window ──────────────── */
+  document.addEventListener("mouseleave", () => {
+    ring.style.opacity = "1";
+    dot.style.opacity  = "1";
+    aurora.style.opacity = "1";
+  });
+  document.addEventListener("mouseenter", () => {
+    ring.style.opacity = "1";
+    dot.style.opacity  = "1";
+    aurora.style.opacity = "1";
+  });
+
+})();
