@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', function() {
   showNextText();
   setInterval(showNextText, 3000);
   
-  // Smooth Scrolling for Navigation
+  // Smooth Scrolling for Navigation with Transitions
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
       e.preventDefault();
@@ -36,13 +36,31 @@ document.addEventListener('DOMContentLoaded', function() {
       const targetElement = document.querySelector(targetId);
       
       if (targetElement) {
+        // Enable smooth scroll with animation
+        document.documentElement.classList.add('smooth-scroll-active');
+        
+        // Smooth scroll to target
         window.scrollTo({
           top: targetElement.offsetTop - 80,
-          behavior: 'smooth'
+          behavior: 'smooth',
+          duration: 800
         });
         
+        // Show transition effect
+        const transitionBanner = document.createElement('div');
+        transitionBanner.className = 'transition-banner';
+        document.body.appendChild(transitionBanner);
+        
+        setTimeout(() => {
+          transitionBanner.remove();
+          document.documentElement.classList.remove('smooth-scroll-active');
+        }, 600);
+        
         // Close mobile menu if open
-        navItems.classList.remove('active');
+        const navItems = document.querySelector('.nav-items');
+        if (navItems) {
+          navItems.classList.remove('active');
+        }
       }
     });
   });
@@ -148,6 +166,11 @@ document.addEventListener('DOMContentLoaded', function() {
 document.addEventListener('DOMContentLoaded', function() {
   // Mark body as loaded for fade-in effect
   document.body.classList.add('loaded');
+  
+  // Trigger page load animations
+  setTimeout(() => {
+    document.body.classList.add('page-loaded');
+  }, 100);
   
   // Enhanced Typewriter Effect
   const typewriterElements = document.querySelectorAll('.typing-text');
@@ -484,4 +507,104 @@ document.addEventListener('DOMContentLoaded', function() {
     aurora.style.opacity = "1";
   });
 
+})();
+
+/* ========== SMOOTH ANIMATED SCROLL TRANSITIONS ========== */
+(function() {
+  'use strict';
+
+  // Custom smooth scroll with easing
+  function smoothScrollTo(target, duration = 800) {
+    const startPosition = window.pageYOffset;
+    const startTime = performance.now();
+    
+    // Easing function (easeInOutCubic)
+    const easeInOutCubic = (t) => {
+      return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+    };
+
+    const scroll = (currentTime) => {
+      const elapsed = currentTime - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      
+      const targetPosition = target.offsetTop - 80;
+      const distance = targetPosition - startPosition;
+      
+      window.scrollTo(0, startPosition + distance * easeInOutCubic(progress));
+      
+      if (progress < 1) {
+        requestAnimationFrame(scroll);
+      }
+    };
+
+    requestAnimationFrame(scroll);
+  }
+
+  // Create and show transition indicator
+  function showTransitionIndicator() {
+    const indicator = document.createElement('div');
+    indicator.className = 'transition-banner';
+    document.body.appendChild(indicator);
+    
+    setTimeout(() => {
+      indicator.remove();
+    }, 600);
+  }
+
+  // Enhanced navigation with smooth scroll animation
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const href = this.getAttribute('href');
+      
+      if (href.startsWith('#') && href !== '#') {
+        e.preventDefault();
+        
+        const targetElement = document.querySelector(href);
+        if (targetElement) {
+          // Show transition effect
+          showTransitionIndicator();
+          
+          // Smooth animated scroll
+          smoothScrollTo(targetElement, 800);
+        }
+      }
+    });
+  });
+
+  // Keyboard navigation with smooth scroll
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
+      const sections = document.querySelectorAll('section');
+      let currentSection = null;
+      let minDistance = Infinity;
+      
+      sections.forEach(section => {
+        const distance = Math.abs(section.getBoundingClientRect().top);
+        if (distance < minDistance) {
+          minDistance = distance;
+          currentSection = section;
+        }
+      });
+      
+      if (!currentSection) return;
+      
+      const sectionArray = Array.from(sections);
+      const currentIndex = sectionArray.indexOf(currentSection);
+      let nextIndex = currentIndex;
+      
+      if (e.key === 'ArrowDown' && currentIndex < sectionArray.length - 1) {
+        nextIndex = currentIndex + 1;
+        e.preventDefault();
+      } else if (e.key === 'ArrowUp' && currentIndex > 0) {
+        nextIndex = currentIndex - 1;
+        e.preventDefault();
+      }
+      
+      if (nextIndex !== currentIndex) {
+        const nextSection = sectionArray[nextIndex];
+        showTransitionIndicator();
+        smoothScrollTo(nextSection, 800);
+      }
+    }
+  });
 })();
