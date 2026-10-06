@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <meta name="google-site-verification" content="google272b6b36e8b860d2" />
   <meta name="description" content="Dilmith Wathsala - IT Project Manager, Manual QA Tester, and UI/UX Designer. View my portfolio, projects, and experience.">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: https://*.youtube.com https://*.ytimg.com https://images.unsplash.com https://i.ytimg.com; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com; font-src 'self' https://cdnjs.cloudflare.com https://fonts.gstatic.com data:; connect-src 'self'; script-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; form-action 'self' https://wa.me https://www.linkedin.com https://github.com https://www.behance.net https://medium.com;">
   <title>Dilmith Wathsala | IT Project Manager | QA | UI/UX Designer</title>
   <link rel="shortcut icon" href="./dilmith2.jpg" type="image/x-icon" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -12,17 +14,21 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles/style.css">
   <meta property="og:title" content="Dilmith Wathsala - Portfolio">
-<meta property="og:description" content="IT Project Manager | Manual QA | UI/UX Designer">
-<meta property="og:image" content="https://yourdomain.com/assets/Dilmith.jpeg">
-<meta property="og:url" content="https://yourdomain.com">
-<meta property="og:type" content="website">
+  <meta property="og:description" content="IT Project Manager | Manual QA | UI/UX Designer">
+  <meta property="og:image" content="https://dilmithwathsala.github.io/assets/1.jpeg">
+  <meta property="og:url" content="https://dilmithwathsala.github.io/">
+  <meta property="og:type" content="website">
 </head>
 <body>
 
   <!-- Navigation -->
   <nav>
-    <div class="nav-container">
-      <div class="logo">DW.</div>
+    <div class="nav-container nav-shell">
+      <a href="#home" class="brand" aria-label="Dilmith Wathsala home">
+        <span class="brand-mark">DW</span>
+        <span class="brand-name">Dilmith Wathsala</span>
+      </a>
+
       <ul class="nav-links" id="navLinks">
         <li><a href="#home">Home</a></li>
         <li><a href="#about">About</a></li>
@@ -30,14 +36,17 @@
         <li><a href="#certificates">Certificates</a></li>
         <li><a href="#myprojects">Projects</a></li>
         <li><a href="#creative">Creative</a></li>
-        <li><a href="#projects">Services</a></li>
+        <li><a href="#music">Music</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
-      <div class="menu-toggle" id="menuToggle">
+
+      <a href="#contact" class="nav-cta">Let’s talk</a>
+
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation" aria-expanded="false">
         <span></span>
         <span></span>
         <span></span>
-      </div>
+      </button>
     </div>
   </nav>
 
@@ -45,9 +54,10 @@
   <section id="home" class="hero">
     <div class="hero-container">
       <div class="hero-content">
-        <h1>Dilmith Wathsala</h1>
-        <p class="subtitle">IT Project Manager • UAT • Manual Software Testing • UI/UX Designer</p>
-        <p>Crafting digital experiences with modern design and cutting-edge technology. Transforming ideas into beautiful, functional solutions.</p>
+        <span class="eyebrow">IT Project Manager • QA • UI/UX Designer</span>
+        <h1>Designing thoughtful digital experiences.</h1>
+        <p>I'm Dilmith, a multidisciplinary maker blending product thinking, QA precision, and modern interface design to create experiences people genuinely enjoy using.</p>
+
         <div class="hero-buttons">
           <a href="#contact" class="btn btn-primary">
             <span>Let's Connect</span>
@@ -58,10 +68,30 @@
             <span>Download CV</span>
           </a>
         </div>
+
+        <div class="hero-metrics">
+          <div class="metric-item">
+            <strong>4+</strong>
+            <span>Years learning</span>
+          </div>
+          <div class="metric-item">
+            <strong>10+</strong>
+            <span>Projects</span>
+          </div>
+          <div class="metric-item">
+            <strong>1</strong>
+            <span>Focused path</span>
+          </div>
+        </div>
       </div>
-      <div class="hero-image">
-        <div class="image-wrapper">
-          <img src="assets/1.jpeg" alt="Dilmith Wathsala">
+
+      <div class="hero-visual">
+        <div class="visual-shell">
+          <img src="assets/1-mobile.jpeg" alt="Dilmith Wathsala portrait">
+          <div class="floating-card tag-top">Product thinking</div>
+          <div class="floating-card tag-bottom">Saxophone</div>
+          <div class="floating-card tag-side">UI/UX</div>
+          <div class="floating-card tag-live">Live improvisation</div>
         </div>
       </div>
     </div>
@@ -75,7 +105,7 @@
     </div>
     <div class="about-content">
       <div class="about-image">
-        <img src="assets/ddd.jpeg" alt="About Dilmith">
+        <img src="assets/ddd-mobile.jpeg" alt="About Dilmith">
       </div>
       <div class="about-text">
         <h3>Who am I?</h3>
@@ -99,11 +129,11 @@
           </div>
         </div>
         <div class="social-links">
-          <a href="https://github.com/dilmithwathsala"><i class="fab fa-github"></i></a>
-          <a href="https://www.linkedin.com/in/dilmith-wathsala"><i class="fab fa-linkedin"></i></a>
-          <a href="https://www.behance.net/dilmithwathsala"><i class="fab fa-behance"></i></a>
-          <a href="https://medium.com/@dilmithwathsala"><i class="fab fa-medium"></i></a>
-          <a href="https://wa.me/+94706423059"><i class="fab fa-whatsapp"></i></a>
+          <a href="https://github.com/dilmithwathsala" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
+          <a href="https://www.linkedin.com/in/dilmith-wathsala" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
+          <a href="https://www.behance.net/dilmithwathsala" target="_blank" rel="noopener noreferrer"><i class="fab fa-behance"></i></a>
+          <a href="https://medium.com/@dilmithwathsala" target="_blank" rel="noopener noreferrer"><i class="fab fa-medium"></i></a>
+          <a href="https://wa.me/+94706423059" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i></a>
         </div>
       </div>
     </div>
@@ -130,7 +160,7 @@
   </section>
 
   <!-- Certificates Section -->
-  <section id="certificates" class="certificates">
+  <!-- <section id="certificates" class="certificates">
     <div class="section-header">
       <h2>Certificates</h2>
       <p>My professional certifications and achievements</p>
@@ -140,7 +170,7 @@
         <div class="cert-embed-wrapper">
           <iframe src="assets/Certificates/Design thinking.pdf" class="cert-iframe"></iframe>
           <div class="cert-overlay">
-            <a href="assets/Certificates/Design thinking.pdf" class="cert-link" target="_blank">
+            <a href="assets/Certificates/Design thinking.pdf" class="cert-link" target="_blank" rel="noopener noreferrer">
               <i class="fas fa-expand"></i> View Full
             </a>
             <a href="assets/Certificates/Design thinking.pdf" class="cert-link cert-link--download" download>
@@ -158,7 +188,7 @@
         <div class="cert-embed-wrapper">
           <iframe src="assets/Certificates/GettingStartedMongoDB.pdf" class="cert-iframe"></iframe>
           <div class="cert-overlay">
-            <a href="assets/Certificates/GettingStartedMongoDB.pdf" class="cert-link" target="_blank">
+            <a href="assets/Certificates/GettingStartedMongoDB.pdf" class="cert-link" target="_blank" rel="noopener noreferrer">
               <i class="fas fa-expand"></i> View Full
             </a>
             <a href="assets/Certificates/GettingStartedMongoDB.pdf" class="cert-link cert-link--download" download>
@@ -176,7 +206,7 @@
         <div class="cert-embed-wrapper">
           <iframe src="assets/Certificates/Introduction to Computer vision.pdf" class="cert-iframe"></iframe>
           <div class="cert-overlay">
-            <a href="assets/Certificates/Introduction to Computer vision.pdf" class="cert-link" target="_blank">
+            <a href="assets/Certificates/Introduction to Computer vision.pdf" class="cert-link" target="_blank" rel="noopener noreferrer">
               <i class="fas fa-expand"></i> View Full
             </a>
             <a href="assets/Certificates/Introduction to Computer vision.pdf" class="cert-link cert-link--download" download>
@@ -194,7 +224,7 @@
         <div class="cert-embed-wrapper">
           <iframe src="assets/Certificates/Jira Project Management.pdf" class="cert-iframe"></iframe>
           <div class="cert-overlay">
-            <a href="assets/Certificates/Jira Project Management.pdf" class="cert-link" target="_blank">
+            <a href="assets/Certificates/Jira Project Management.pdf" class="cert-link" target="_blank" rel="noopener noreferrer">
               <i class="fas fa-expand"></i> View Full
             </a>
             <a href="assets/Certificates/Jira Project Management.pdf" class="cert-link cert-link--download" download>
@@ -212,7 +242,7 @@
         <div class="cert-embed-wrapper">
           <iframe src="assets/Certificates/Seo for beginners.pdf" class="cert-iframe"></iframe>
           <div class="cert-overlay">
-            <a href="assets/Certificates/Seo for beginners.pdf" class="cert-link" target="_blank">
+            <a href="assets/Certificates/Seo for beginners.pdf" class="cert-link" target="_blank" rel="noopener noreferrer">
               <i class="fas fa-expand"></i> View Full
             </a>
             <a href="assets/Certificates/Seo for beginners.pdf" class="cert-link cert-link--download" download>
@@ -230,7 +260,7 @@
         <div class="cert-embed-wrapper">
           <iframe src="assets/Certificates/Slack Project Management.pdf" class="cert-iframe"></iframe>
           <div class="cert-overlay">
-            <a href="assets/Certificates/Slack Project Management.pdf" class="cert-link" target="_blank">
+            <a href="assets/Certificates/Slack Project Management.pdf" class="cert-link" target="_blank" rel="noopener noreferrer">
               <i class="fas fa-expand"></i> View Full
             </a>
             <a href="assets/Certificates/Slack Project Management.pdf" class="cert-link cert-link--download" download>
@@ -244,11 +274,11 @@
         </div>
       </div>
 
-      <!-- <div class="certificate-card">
+      <div class="certificate-card">
         <div class="cert-embed-wrapper">
           <iframe src="assets/Certificates/UI UX for beginners.pdf" class="cert-iframe"></iframe>
           <div class="cert-overlay">
-            <a href="assets/Certificates/UI UX for beginners.pdf" class="cert-link" target="_blank">
+            <a href="assets/Certificates/UI UX for beginners.pdf" class="cert-link" target="_blank" rel="noopener noreferrer">
               <i class="fas fa-expand"></i> View Full
             </a>
             <a href="assets/Certificates/UI UX for beginners.pdf" class="cert-link cert-link--download" download>
@@ -260,8 +290,8 @@
           <div class="cert-icon-small"><i class="fas fa-pencil-ruler"></i></div>
           <h3>UI UX for Beginners</h3>
         </div>
-      </div> -->
-    </div>
+      </div> 
+    </div>-->
   </section>
 
   <!-- Projects Section -->
@@ -346,22 +376,22 @@
       <p>My creative pursuits outside of development</p>
     </div>
     <div class="creative-grid">
-      <!-- Music -->
+      <!-- Saxophone -->
       <div class="creative-card creative-music">
         <div class="creative-glow creative-glow--music"></div>
         <div class="creative-icon-wrap creative-icon-wrap--music">
           <i class="fas fa-music"></i>
         </div>
-        <h3>Music</h3>
-        <p>Composing and producing original tracks. Music is my way of expressing emotions that words can't capture.</p>
+        <h3>Saxophone</h3>
+        <p>Performing with emotion, groove, and expression through live saxophone sets and improvisation.</p>
         <div class="creative-links">
-          <a href="https://www.youtube.com/@dilmithwathsala" class="creative-link creative-link--youtube" target="_blank">
+          <a href="https://www.youtube.com/@dilmithwathsala" class="creative-link creative-link--youtube" target="_blank" rel="noopener noreferrer">
             <i class="fab fa-youtube"></i>
-            <span>YouTube</span>
+            <span>Watch</span>
           </a>
-          <a href="https://www.facebook.com/dilmithwathsala" class="creative-link creative-link--facebook" target="_blank">
+          <a href="https://www.facebook.com/dilmithwathsala" class="creative-link creative-link--facebook" target="_blank" rel="noopener noreferrer">
             <i class="fab fa-facebook-f"></i>
-            <span>Facebook</span>
+            <span>Live</span>
           </a>
         </div>
       </div>
@@ -375,7 +405,7 @@
         <h3>Writing</h3>
         <p>Sharing my thoughts on tech, life, and creativity through articles on Medium. Writing helps me reflect and grow.</p>
         <div class="creative-links">
-          <a href="https://medium.com/@dilmithwathsala" class="creative-link creative-link--medium" target="_blank">
+          <a href="https://medium.com/@dilmithwathsala" class="creative-link creative-link--medium" target="_blank" rel="noopener noreferrer">
             <i class="fab fa-medium"></i>
             <span>Medium</span>
           </a>
@@ -391,16 +421,53 @@
         <h3>Mobile Photography</h3>
         <p>Capturing life's beautiful moments through my mobile lens. Every shot tells a story waiting to be discovered.</p>
         <div class="creative-links">
-          <a href="https://www.instagram.com/dilsclicks/?hl=en" class="creative-link creative-link--instagram" target="_blank">
+          <a href="https://www.instagram.com/dilsclicks/?hl=en" class="creative-link creative-link--instagram" target="_blank" rel="noopener noreferrer">
             <i class="fab fa-instagram"></i>
             <span>Instagram</span>
           </a>
-          <a href="https://www.facebook.com/DilsClicks" class="creative-link creative-link--facebook" target="_blank">
+          <a href="https://www.facebook.com/DilsClicks" class="creative-link creative-link--facebook" target="_blank" rel="noopener noreferrer">
             <i class="fab fa-facebook-f"></i>
             <span>Facebook</span>
           </a>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- Saxophone Section -->
+  <section id="music" class="music">
+    <div class="section-header">
+      <h2>Saxophone Performances</h2>
+      <p>Live improvisations and expressive saxophone moments</p>
+    </div>
+
+    <div class="music-grid">
+      <a class="music-card" href="https://www.youtube.com/watch?v=aHCz8fDPQQY" target="_blank" rel="noopener noreferrer">
+        <img src="https://i.ytimg.com/vi/aHCz8fDPQQY/hqdefault.jpg?sqp=-oaymwEnCOADEI4CSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLBsfL8PUBTgCjJuW3g20DLgjMleGw" alt="Saxophone performance thumbnail">
+        <div class="music-card__info">
+          <span class="music-tag">Live</span>
+          <h3>Performance 01</h3>
+          <p>Watch saxophone session</p>
+        </div>
+      </a>
+
+      <a class="music-card" href="https://www.youtube.com/watch?v=8GpqcuWzXf8" target="_blank" rel="noopener noreferrer">
+        <img src="https://i.ytimg.com/an_webp/8GpqcuWzXf8/mqdefault_6s.webp?du=3000&sqp=CMzgkdYG&rs=AOn4CLB180-pBq3b7k-OKpt3_NIbFft2VA" alt="Saxophone performance thumbnail">
+        <div class="music-card__info">
+          <span class="music-tag">Studio</span>
+          <h3>Performance 02</h3>
+          <p>Watch saxophone session</p>
+        </div>
+      </a>
+
+      <a class="music-card" href="https://www.youtube.com/watch?v=U7b5nComK0U&pp=0gcJCTUMAYcqIYzv" target="_blank" rel="noopener noreferrer">
+        <img src="https://i.ytimg.com/an_webp/U7b5nComK0U/mqdefault_6s.webp?du=3000&sqp=COjrkdYG&rs=AOn4CLBfLjTnEOhoB7nEvMno3vncYE3yjw" alt="Saxophone performance thumbnail">
+        <div class="music-card__info">
+          <span class="music-tag">Featured</span>
+          <h3>Performance 03</h3>
+          <p>Watch saxophone session</p>
+        </div>
+      </a>
     </div>
   </section>
 
@@ -413,7 +480,7 @@
     <div class="projects-grid">
       <div class="project-card">
         <div class="project-image">
-          <img src="assets/web.jpg" alt="Website Designing">
+          <img src="assets/web-mobile.jpg" alt="Website Designing">
           <div class="project-overlay">
             <a href="https://www.fiverr.com/dilmithwathsala" class="project-link">
               <i class="fas fa-link"></i>
@@ -431,7 +498,7 @@
       </div>
       <div class="project-card">
         <div class="project-image">
-          <img src="assets/iot.jpg" alt="IOT Devices">
+          <img src="assets/iot-mobile.jpg" alt="IOT Devices">
           <div class="project-overlay">
             <a href="https://www.fiverr.com/dilmithwathsala" class="project-link">
               <i class="fas fa-link"></i>
@@ -449,7 +516,7 @@
       </div>
       <div class="project-card">
         <div class="project-image">
-          <img src="assets/ui.jpg" alt="UI Designs">
+          <img src="assets/ui-mobile.jpg" alt="UI Designs">
           <div class="project-overlay">
             <a href="https://www.fiverr.com/dilmithwathsala" class="project-link">
               <i class="fas fa-link"></i>
@@ -543,12 +610,12 @@
         <a href="#contact">Contact</a>
       </div>
       <div class="footer-social">
-        <a href="https://github.com/dilmithwathsala"><i class="fab fa-github"></i></a>
-        <a href="https://www.linkedin.com/in/dilmith-wathsala"><i class="fab fa-linkedin"></i></a>
-        <a href="https://www.behance.net/dilmithwathsala"><i class="fab fa-behance"></i></a>
-        <a href="https://medium.com/@dilmithwathsala"><i class="fab fa-medium"></i></a>
-        <a href="https://www.fiverr.com/dilmithwathsala"><i class="fab fa-fiverr"></i></a>
-        <a href="https://wa.me/+94706423059"><i class="fab fa-whatsapp"></i></a>
+        <a href="https://github.com/dilmithwathsala" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/dilmith-wathsala" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
+        <a href="https://www.behance.net/dilmithwathsala" target="_blank" rel="noopener noreferrer"><i class="fab fa-behance"></i></a>
+        <a href="https://medium.com/@dilmithwathsala" target="_blank" rel="noopener noreferrer"><i class="fab fa-medium"></i></a>
+        <a href="https://www.fiverr.com/dilmithwathsala" target="_blank" rel="noopener noreferrer"><i class="fab fa-fiverr"></i></a>
+        <a href="https://wa.me/+94706423059" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i></a>
       </div>
     </div>
     <div class="footer-bottom">
