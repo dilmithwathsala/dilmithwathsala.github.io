@@ -1,4 +1,44 @@
 document.addEventListener('DOMContentLoaded', function () {
+  const themeToggle = document.getElementById('themeToggle');
+
+  if (themeToggle) {
+    let theme = 'day';
+
+    try {
+      theme = window.localStorage.getItem('portfolio-theme') === 'night' ? 'night' : 'day';
+    } catch (error) {
+      console.warn('Unable to read the saved theme preference.', error);
+    }
+
+    function applyTheme(nextTheme) {
+      theme = nextTheme;
+      document.documentElement.dataset.theme = theme;
+      themeToggle.setAttribute('aria-pressed', String(theme === 'night'));
+      themeToggle.setAttribute(
+        'aria-label',
+        theme === 'night' ? 'Switch to day mode' : 'Switch to night mode'
+      );
+
+      const icon = themeToggle.querySelector('i');
+      if (icon) {
+        icon.classList.toggle('fa-moon', theme === 'day');
+        icon.classList.toggle('fa-sun', theme === 'night');
+      }
+    }
+
+    applyTheme(theme);
+
+    themeToggle.addEventListener('click', function () {
+      applyTheme(theme === 'day' ? 'night' : 'day');
+
+      try {
+        window.localStorage.setItem('portfolio-theme', theme);
+      } catch (error) {
+        console.warn('Unable to save the theme preference.', error);
+      }
+    });
+  }
+
   const menuToggle = document.getElementById('menuToggle');
   const navLinks = document.getElementById('navLinks');
 
@@ -32,7 +72,7 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   const revealItems = document.querySelectorAll(
-    '.hero-container, .hero-content, .hero-visual, .section-header, .about-content, .experience-item, .certificate-card, .myproject-card, .creative-card, .project-card, .music-card, .contact-container, .contact-item, .info-item, .metric-item'
+    '.hero-container, .hero-content, .hero-visual, .section-header, .about-content, .experience-item, .certificate-card, .myproject-card, .creative-card, .project-card, .music-card, .music-more, .contact-container, .contact-item, .detail-item, .info-item, .metric-item'
   );
 
   revealItems.forEach(function (item) {
